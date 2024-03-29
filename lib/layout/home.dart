@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/screens/browser_tab.dart';
-import 'package:movie_app/screens/home_tab.dart';
-import 'package:movie_app/screens/search_tab.dart';
-import 'package:movie_app/screens/watched_list_tab.dart';
+import 'package:movie_app/screens/browserWidget/browser_tab.dart';
+import 'package:movie_app/screens/homeWidget/home_tab.dart';
+import 'package:movie_app/screens/searchWidget/search_tab.dart';
+import 'package:movie_app/screens/watchListWidget/watched_list_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = 'home screen';
@@ -46,14 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.search),
                 label: 'Search'),
             BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('assets/images/Icon ionic-md-bookmarks (1).png'),
-                ),
+                icon:Icon(Icons.movie),
                 label: 'Browser'),
             BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('assets/images/Icon material-movie (1).png'),
-                ),
+                icon: Icon(Icons.bookmarks),
                 label: 'Watched List'),
           ],
         ),
