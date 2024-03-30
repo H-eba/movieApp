@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData{
+  static const Color yellowColor = Color(0xffC6C6C6);
   static final ThemeData theme=ThemeData(
     bottomNavigationBarTheme:
     BottomNavigationBarThemeData(backgroundColor: Color(0xFF1A1A1A),
