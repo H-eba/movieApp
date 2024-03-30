@@ -27,9 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedTabIndex,
           onTap: (index) {
