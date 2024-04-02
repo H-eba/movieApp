@@ -10,14 +10,18 @@ class PopularResponse {
   List<Result>? results;
   int? totalPages;
   int? totalResults;
+  String? statusMessage;
 
   PopularResponse({
       this.page, 
       this.results, 
       this.totalPages, 
-      this.totalResults,});
+      this.totalResults,
+      this.statusMessage,
+  });
 
   PopularResponse.fromJson(dynamic json) {
+    statusMessage = json['status_message'];
     page = json['page'];
     if (json['results'] != null) {
       results = [];
@@ -37,6 +41,7 @@ class PopularResponse {
     }
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;
+    map['status_message'] = statusMessage;
     return map;
   }
 
