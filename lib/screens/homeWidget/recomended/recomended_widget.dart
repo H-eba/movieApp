@@ -23,20 +23,7 @@ class _RecomendedWidgetState extends State<RecomendedWidget> {
   @override
   Widget build(BuildContext context) {
     return
-      Container(
-        padding: EdgeInsets.all(10),
-        height: 300,
-        color: Color(0xff514F4F),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Recommended',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            SizedBox(
-              height: 15,
-            ),
+
             ChangeNotifierProvider(
               create: (context) => viewModel,
               child: Consumer<RecomendedWidgetViewModel>(
@@ -76,13 +63,12 @@ class _RecomendedWidgetState extends State<RecomendedWidget> {
 
                     }
                     else{
-                      return CustomeWidget(movies: viewModel.movies);
+                      return CustomeWidget(
+                        title: 'Recomended',
+                        movies: viewModel.movies,id:5 ,);
                     }
                   }
               ),
-            ),
-          ],
-        ),
-      );
+            );
   }
 }
