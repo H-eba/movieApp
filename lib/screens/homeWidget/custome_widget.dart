@@ -5,19 +5,17 @@ import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_screen.d
 class CustomeWidget extends StatefulWidget {
   String title;
   List<Result>? movies;
-  int? id;
-  CustomeWidget(
-      {super.key, required this.movies, required this.id, required this.title});
+  CustomeWidget({super.key, required this.movies, required this.title});
 
   @override
   State<CustomeWidget> createState() => _CustomeWidgetState();
 }
-bool isChacked = false;
 
 class _CustomeWidgetState extends State<CustomeWidget> {
+  bool _isHovered = false;
+
   @override
   Widget build(BuildContext context) {
-
     return Container(
         padding: EdgeInsets.all(10),
         height: 300,
@@ -40,27 +38,25 @@ class _CustomeWidgetState extends State<CustomeWidget> {
               itemBuilder: (context, index) {
                 return Stack(
                   children: <Widget>[
-                    Container(
-                        decoration: new BoxDecoration(color: Colors.white),
-                        alignment: Alignment.center,
-                        height: double.infinity,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, MovieDetailsScreen.routeName,
-                                arguments: {
-                                  'id': widget.movies![index].id,
-                                });
-                          },
-                          child: Image.network(
-                              'https://image.tmdb.org/t/p/w500/${widget.movies![index].posterPath ?? ''}',
-                              fit: BoxFit.fill),
-                        )),
-
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, MovieDetailsScreen.routeName,
+                            arguments: {
+                              'id': widget.movies![index].id,
+                            });
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                            'https://image.tmdb.org/t/p/w500/${widget.movies![index].posterPath ?? ''}',
+                            fit: BoxFit.fill),
+                      ),
+                    ),
                     Align(
                         alignment: Alignment.topLeft,
                         child: InkWell(
-                          child: isChacked
+                          child: widget.movies![index].adult!
                               ? Image(
                                   image: AssetImage(
                                       'assets/images/checked_bookmark_icon.png'))
@@ -69,10 +65,9 @@ class _CustomeWidgetState extends State<CustomeWidget> {
                                       'assets/images/bookmark_icon.png')),
                           onTap: () {
                             // TODO : add to Watchlist
-                            if (widget.id == widget.movies![index].id)
-                              isChacked = true;
+                            widget.movies![index].adult = true;
                             setState(() {});
-                            },
+                          },
                         ))
                   ],
                 );
@@ -82,3 +77,4 @@ class _CustomeWidgetState extends State<CustomeWidget> {
         ]));
   }
 }
+

@@ -65,7 +65,7 @@ class _RecomendedWidgetState extends State<RecomendedWidget> {
                     else{
                       return CustomeWidget(
                         title: 'Recomended',
-                        movies: viewModel.movies,id:5 ,);
+                        movies: viewModel.movies);
                     }
                   }
               ),
