@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/screens/browserWidget/browser_tab.dart';
 import 'package:movie_app/screens/homeWidget/home_tab.dart';
+import 'package:movie_app/screens/searchWidget/search_movie.dart';
 import 'package:movie_app/screens/searchWidget/search_tab.dart';
 import 'package:movie_app/screens/watchListWidget/watched_list_tab.dart';
 
@@ -40,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: 'Home'),
             BottomNavigationBarItem(
                 backgroundColor: Color(0xff1A1A1A),
-                icon: Icon(Icons.search),
+                icon: IconButton(onPressed: () {
+                  showSearch(context: context, delegate: SearchMovie());
+                },icon: (Icon(Icons.search)),),
                 label: 'Search'),
             BottomNavigationBarItem(
                 icon:Icon(Icons.movie),

@@ -4,6 +4,8 @@ import 'package:movie_app/models/Popular_response.dart';
 import 'package:movie_app/models/TopRatedResponse.dart';
 import 'package:movie_app/models/Upcoming_response.dart';
 
+import '../models/SearchResponce.dart';
+
 class ApiManager {
   static const String baseUri = 'api.themoviedb.org';
   static const String apiKey = '7cd714cc8f1c493e940cf196274592e2';
@@ -62,4 +64,17 @@ static Future<TopRatedResponse> getTopRated() async{
     throw(error);
   }
 }
+
+
+  static Future<SearchResponce>getSearchData({ String?search_key_word })async{
+    Uri url=Uri.https(baseUri,'/3/search/movie',{
+      'query':search_key_word,
+    });
+    http.Response response = await http.get(url,
+        headers:{'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MzIxZGVhZDU2NmVhZjkzOTk0ZTk2YjBkM2FjNDkwZCIsInN1YiI6IjYzZTUxZWY0MmUyYjJjMDBjYjdlZmI2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Irm44wksKGP7J5auFnBOhXBNC9Dkj7C3_jf7le-U2rI'}
+    );
+    var jason=jsonDecode(response.body);
+    return SearchResponce.fromJson(jason);
+
+  }
 }
