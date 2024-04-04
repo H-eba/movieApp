@@ -21,21 +21,7 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
   @override
   Widget build(BuildContext context) {
     return
-      Container(
-      padding: EdgeInsets.all(10),
-      height: 300,
-      color: Color(0xff514F4F),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'New Releases ',
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          ChangeNotifierProvider(
+      ChangeNotifierProvider(
             create: (context) => viewModel,
             child: Consumer<NewReleasesViewModel>(
               builder:(context, value, child) {
@@ -74,13 +60,12 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
 
                 }
                 else{
-                  return CustomeWidget(movies: viewModel.movies);
+                  return CustomeWidget(
+                      title: 'New Releases ',
+                      movies: viewModel.movies,id:823464 );
                 }
               }
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

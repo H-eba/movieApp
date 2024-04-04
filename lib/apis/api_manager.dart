@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:movie_app/models/DetailsResponse.dart';
 import 'package:movie_app/models/Popular_response.dart';
+import 'package:movie_app/models/SimilarResponse.dart';
 import 'package:movie_app/models/TopRatedResponse.dart';
 import 'package:movie_app/models/Upcoming_response.dart';
 
@@ -64,6 +66,42 @@ static Future<TopRatedResponse> getTopRated() async{
     throw(error);
   }
 }
+//https://api.themoviedb.org/3/movie/823464?language=en-US&api_key=7cd714cc8f1c493e940cf196274592e2
+
+  static Future<DetailsResponse> getMovieDetails(int? id) async{
+    Uri url = Uri.https(
+        baseUri, '/3/movie/${id}',
+        {
+          'api_key':apiKey,
+          'language': 'en-US',
+        });
+    try {
+      var response = await http.get(url);
+      var responseBody = response.body; // string
+      var json = jsonDecode(responseBody); // string => json
+      return DetailsResponse.fromJson(json);
+    }catch(error){
+      throw(error);
+    }
+  }
+
+  //https://api.themoviedb.org/3/movie/123/similar?language=en-US&page=1
+  static Future<SimilarResponse> getSimilarMovie(int? id) async{
+    Uri url = Uri.https(
+        baseUri, '/3/movie/${id}/similar',
+        {
+          'api_key':apiKey,
+          'language': 'en-US',
+        });
+    try {
+      var response = await http.get(url);
+      var responseBody = response.body; // string
+      var json = jsonDecode(responseBody); // string => json
+      return SimilarResponse.fromJson(json);
+    }catch(error){
+      throw(error);
+    }
+  }
 
 
   static Future<SearchResponce>getSearchData({ String?search_key_word })async{
