@@ -1,10 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/layout/home.dart';
 import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_screen.dart';
 import 'package:movie_app/screens/splashScreen/splashScreen.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
