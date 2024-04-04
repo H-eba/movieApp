@@ -58,11 +58,14 @@ class SliderWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 5),
           child: Align(
             alignment: Alignment.bottomLeft,
-            child: Image(
-              image: NetworkImage(
-                'https://image.tmdb.org/t/p/w500/${results?.posterPath ?? ''}',
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: Image(
+                image: NetworkImage(
+                  'https://image.tmdb.org/t/p/w500/${results?.posterPath ?? ''}',
+                ),
+                height: MediaQuery.of(context).size.height * 0.2,
               ),
-              height: MediaQuery.of(context).size.height * 0.2,
             ),
           ),
         )

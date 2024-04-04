@@ -65,7 +65,7 @@ class _MoreLikeWidgetState extends State<MoreLikeWidget> {
                         return CustomeWidget(
                             title: 'More Like This',
                             movies: viewModel.movies,
-                            id:widget.id);
+                            );
                       }
 
                     }

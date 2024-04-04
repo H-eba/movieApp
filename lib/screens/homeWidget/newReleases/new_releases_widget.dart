@@ -62,7 +62,8 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
                 else{
                   return CustomeWidget(
                       title: 'New Releases ',
-                      movies: viewModel.movies,id:823464 );
+                      movies: viewModel.movies,
+                      );
                 }
               }
             ),
