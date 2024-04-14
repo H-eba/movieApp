@@ -14,10 +14,11 @@ class ItemSearch extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            ClipRRect(borderRadius: BorderRadius.circular(25),
+            ClipRRect(borderRadius: BorderRadius.circular(15),
               child: Image.network('https://image.tmdb.org/t/p/w500${searchResult.backdropPath??''}',
                 width: 150,
-                height: 150,),
+                height: 70,
+              fit: BoxFit.fill,),
             ),
             SizedBox(width: 15,),
             Column(

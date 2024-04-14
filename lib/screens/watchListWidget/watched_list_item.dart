@@ -19,8 +19,7 @@ class WatchedListItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
               child: Image.network(item.image??'',
                 width: 150,
-                height: 150
-                ,),
+                height: 150,),
             ),
           ),
           Column(

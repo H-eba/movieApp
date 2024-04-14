@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/models/Genres.dart';
 import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/browserWidget/browser_view_model.dart';
 import 'package:movie_app/screens/browserWidget/category_widget.dart';
 import 'package:provider/provider.dart';
+
+import 'movie_details.dart';
 
 List<String> images = [
   'assets/categories/adventure.jpg',
@@ -118,7 +121,8 @@ class _BrowserTabState extends State<BrowserTab> {
                     crossAxisSpacing: 32,
                   ),
                   itemBuilder: (context, index) =>
-                      CategoryWidget(viewModel.movies?[index].name ?? '', images[index])),
+                      CategoryWidget((viewModel.movies?[index].name??'') , images[index])),
+
             )
           ],
         );

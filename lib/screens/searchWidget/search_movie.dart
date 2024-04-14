@@ -4,6 +4,13 @@ import 'package:movie_app/screens/searchWidget/search_item.dart';
 
 class SearchMovie extends SearchDelegate{
   @override
+  ThemeData appBarTheme(BuildContext context) {
+    return Theme.of(context).copyWith(
+     appBarTheme: AppBarTheme(backgroundColor: Color(0xFF514F4F,),
+     elevation: 0),
+    );
+  }
+  @override
   List<Widget>? buildActions(BuildContext context) {
     return [
       IconButton(
@@ -59,7 +66,10 @@ class SearchMovie extends SearchDelegate{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text('No search',style: TextStyle(color: Colors.white),),);
+    return Center(
+      child:Image.asset('assets/images/search.png')
+    );
+
   }
   
 }

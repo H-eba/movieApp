@@ -13,7 +13,8 @@ class MyThemeData{
 
 
     appBarTheme: AppBarTheme(
-        color: Colors.transparent,
+      color: Colors.transparent ,
+
        ),
     scaffoldBackgroundColor: Colors.transparent,
     useMaterial3: true,

@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:movie_app/models/CategoryResponse.dart';
 import 'package:movie_app/models/DetailsResponse.dart';
 import 'package:movie_app/models/MovieListResponse.dart';
 import 'package:movie_app/models/Popular_response.dart';
@@ -135,4 +137,16 @@ static Future<TopRatedResponse> getTopRated() async{
     }
   }
 
+
+  static Future<CategoryResponse>getCategoryDetailsList()async{
+    Uri url=Uri.https(baseUri,'/3/discover/movie',{
+
+    });
+    http.Response response = await http.get(url,
+        headers:{'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MzIxZGVhZDU2NmVhZjkzOTk0ZTk2YjBkM2FjNDkwZCIsInN1YiI6IjYzZTUxZWY0MmUyYjJjMDBjYjdlZmI2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Irm44wksKGP7J5auFnBOhXBNC9Dkj7C3_jf7le-U2rI'}
+    );
+    var jason=jsonDecode(response.body);
+    return CategoryResponse.fromJson(jason);
+
+  }
 }

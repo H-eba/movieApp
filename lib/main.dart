@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/layout/home.dart';
 import 'package:movie_app/my_theme_data.dart';
+import 'package:movie_app/screens/browserWidget/movie_details.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_screen.dart';
 import 'package:movie_app/screens/splashScreen/splashScreen.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           SplashScreen.routeName: (context) => SplashScreen(),
           MovieDetailsScreen.routeName: (context) => MovieDetailsScreen(),
           HomeScreen.routeName: (_) => HomeScreen(),
+          MovieDetails.routName:(context)=>MovieDetails(),
 
         },
 

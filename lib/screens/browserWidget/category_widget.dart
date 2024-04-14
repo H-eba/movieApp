@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/Genres.dart';
+import 'package:movie_app/screens/browserWidget/movie_details.dart';
 
 
 class CategoryWidget extends StatelessWidget {
-  String category;
-  String img ;
-  CategoryWidget(this.category, this.img);
+ //String? category;
+ // int? index ;
+ String img ;
+ String category;
+ Genres ? movie;
+ //List<Genres>? movie;
+  CategoryWidget(this.category,   this.img,{this.movie,});
+  //CategoryWidget.init(this.genres);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-
+     Navigator.pushNamed(context, MovieDetails.routName,arguments: movie);
       },
       child: Container(
         margin: EdgeInsets.only(left: 12,right: 12),
@@ -27,7 +33,7 @@ class CategoryWidget extends StatelessWidget {
               colorBlendMode: BlendMode.darken,
               color: Colors.grey,
             ),
-            Text('${category}',
+            Text(movie[index].name??'',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
