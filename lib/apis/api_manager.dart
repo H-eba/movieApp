@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movie_app/models/DetailsResponse.dart';
+import 'package:movie_app/models/MovieListResponse.dart';
 import 'package:movie_app/models/Popular_response.dart';
 import 'package:movie_app/models/SimilarResponse.dart';
 import 'package:movie_app/models/TopRatedResponse.dart';
@@ -115,4 +116,23 @@ static Future<TopRatedResponse> getTopRated() async{
     return SearchResponce.fromJson(jason);
 
   }
+
+  //https://api.themoviedb.org/3/genre/movie/list?language=en
+  static Future<MovieListResponse> getMovieList() async{
+    Uri url = Uri.https(
+        baseUri, '/3/genre/movie/list',
+        {
+          'api_key':apiKey,
+          'language': 'en-US',
+        });
+    try {
+      var response = await http.get(url);
+      var responseBody = response.body; // string
+      var json = jsonDecode(responseBody); // string => json
+      return MovieListResponse.fromJson(json);
+    }catch(error){
+      throw(error);
+    }
+  }
+
 }
