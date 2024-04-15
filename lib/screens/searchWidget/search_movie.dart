@@ -49,16 +49,14 @@ class SearchMovie extends SearchDelegate{
           return Text('error');
         }
         var resultsSearch=snapshot.data?.results??[];
-        return Expanded(
-          child: ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(
-              height: 10,
-            ),
-            itemBuilder: (context, index) {
-              return ItemSearch(searchResult:resultsSearch[index] );
-            },
-            itemCount: resultsSearch.length,
+        return ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            height: 10,
           ),
+          itemBuilder: (context, index) {
+            return ItemSearch(searchResult:resultsSearch[index] );
+          },
+          itemCount: resultsSearch.length,
         );
       },
     );
