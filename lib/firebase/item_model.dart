@@ -26,7 +26,8 @@ class WatchedListItemModel {
       'title': title,
       'date': date,
       'image': image,
-      'originalTitle':originalTitle
+      'originalTitle':originalTitle,
+      ' mark': mark,
     };
   }
 }
