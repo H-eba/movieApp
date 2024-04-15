@@ -14,21 +14,21 @@ class ItemSearch extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            ClipRRect(borderRadius: BorderRadius.circular(15),
-              child: Image.network('https://image.tmdb.org/t/p/w500${searchResult.backdropPath??''}',
-                width: 150,
-                height: 70,
-              fit: BoxFit.fill,),
-            ),
-            SizedBox(width: 15,),
-            InkWell(
-              onTap: () =>  Navigator.pushNamed(context, MovieDetailsScreen.routeName ,
-                  arguments: {
-                    'id': searchResult.id,
-                  }) ,
-              child: Column(
+        child: InkWell(
+          onTap: () =>  Navigator.pushNamed(context, MovieDetailsScreen.routeName ,
+              arguments: {
+                'id': searchResult.id,
+              }) ,
+          child: Row(
+            children: [
+              ClipRRect(borderRadius: BorderRadius.circular(15),
+                child: Image.network('https://image.tmdb.org/t/p/w500${searchResult.backdropPath??''}',
+                  width: 150,
+                  height: 70,
+                fit: BoxFit.fill,),
+              ),
+              SizedBox(width: 15,),
+              Column(
                 children: [
 
                   Text(
@@ -45,11 +45,11 @@ class ItemSearch extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
 
 
-            // Image.network(result.)
-          ],
+              // Image.network(result.)
+            ],
+          ),
         ),
       ),
     );
