@@ -25,9 +25,15 @@ class SliderWidget extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Image(
-                  image: NetworkImage(
-                      'https://image.tmdb.org/t/p/w500/${results?.backdropPath ?? ''}')),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image(
+                    image: NetworkImage(
+                        'https://image.tmdb.org/t/p/w500/${results?.backdropPath ?? ''}')),
+                Icon(Icons.play_circle,size: 60,color: Color(0xB6F5F5F5),)
+                ]
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,

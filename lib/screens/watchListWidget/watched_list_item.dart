@@ -22,14 +22,14 @@ class WatchedListItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(item.image??'',
                   width: 150,
-                  height: 100,
+                  height: 200,
                   fit: BoxFit.fill,),
               ),
               Align(alignment: Alignment.topLeft,
                 child: InkWell(onTap: (){
                   FirebaseFunction.deleteItem(item.id??'');
                 },
-                    child: Image.asset('assets/images/checked_bookmark_icon.png')),
+                    child: Image.asset('assets/images/delete_bookmark.png')),
               )
             ],)
           ),

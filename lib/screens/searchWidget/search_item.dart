@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_screen.dart';
 
 import '../../models/SearchResponce.dart';
 
@@ -21,22 +23,28 @@ class ItemSearch extends StatelessWidget {
               fit: BoxFit.fill,),
             ),
             SizedBox(width: 15,),
-            Column(
-              children: [
+            InkWell(
+              onTap: () =>  Navigator.pushNamed(context, MovieDetailsScreen.routeName ,
+                  arguments: {
+                    'id': searchResult.id,
+                  }) ,
+              child: Column(
+                children: [
 
-                Text(
-                  searchResult.originalTitle?? '',
-                  style: TextStyle(color: CupertinoColors.white, fontSize: 15),
-                ),
-                Text(
-                  searchResult.releaseDate?? '',
-                  style: TextStyle(color: CupertinoColors.white, fontSize: 15),
-                ),
-                Text(
-                  searchResult.originalTitle?? '',
-                  style: TextStyle(color: CupertinoColors.white, fontSize: 15),
-                ),
-              ],
+                  Text(
+                    searchResult.originalTitle?? '',
+                    style: TextStyle(color: CupertinoColors.white, fontSize: 15),
+                  ),
+                  Text(
+                    searchResult.releaseDate?? '',
+                    style: TextStyle(color: CupertinoColors.white, fontSize: 15),
+                  ),
+                  Text(
+                    searchResult.originalTitle?? '',
+                    style: TextStyle(color: CupertinoColors.white, fontSize: 15),
+                  ),
+                ],
+              ),
             ),
 
 

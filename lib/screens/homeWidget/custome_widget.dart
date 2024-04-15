@@ -29,12 +29,12 @@ class _CustomeWidgetState extends State<CustomeWidget> {
             widget.title,
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Expanded(
             child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(
+              separatorBuilder: (context, index) =>const SizedBox(
                 width: 20,
               ),
               scrollDirection: Axis.horizontal,

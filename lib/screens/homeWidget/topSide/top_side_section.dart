@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/homeWidget/topSide/slider-widget.dart';
 import 'package:movie_app/screens/homeWidget/topSide/top_side_section_view_model.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +56,6 @@ class _TopSideSectionState extends State<TopSideSection> {
             else if (viewModel.results == null) {
               return Center(
                 child: CircularProgressIndicator(
-                  color: MyThemeData.yellowColor,
                 ),
               );
             } else {

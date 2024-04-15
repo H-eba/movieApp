@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/homeWidget/custome_widget.dart';
 import 'package:movie_app/screens/homeWidget/recomended/recomended_widget_view_model.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +56,6 @@ class _RecomendedWidgetState extends State<RecomendedWidget> {
                     }else if(viewModel.movies == null) {
                       return Center(
                         child: CircularProgressIndicator(
-                          color: MyThemeData.yellowColor,
                         ),
                       );
 

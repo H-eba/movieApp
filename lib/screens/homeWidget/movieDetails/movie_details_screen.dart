@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/my_theme_data.dart';
+import 'package:flutter/widgets.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/genres_widget.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/more_like_widget.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_view_model.dart';
@@ -62,7 +62,6 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               else if (viewModel.movieDetails == null) {
                 return Center(
                   child: CircularProgressIndicator(
-                    color: MyThemeData.yellowColor,
                   ),
                 );
               }
@@ -81,10 +80,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image(
-                            image: NetworkImage(
-                                'https://image.tmdb.org/t/p/w500/${viewModel
-                                    .movieDetails!.backdropPath}'),
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Image(
+                                image: NetworkImage(
+                                    'https://image.tmdb.org/t/p/w500/${viewModel
+                                        .movieDetails!.backdropPath}'),
+                              ),
+                              Icon(Icons.play_circle,size: 60,color: Color(0xB6F5F5F5),)
+                            ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15, left: 15),

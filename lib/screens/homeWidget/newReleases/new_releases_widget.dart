@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/homeWidget/custome_widget.dart';
 import 'package:movie_app/screens/homeWidget/newReleases/new_releases_view_model.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +53,6 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
                 }else if(viewModel.movies == null) {
                   return Center(
                     child: CircularProgressIndicator(
-                      color: MyThemeData.yellowColor,
                     ),
                   );
 

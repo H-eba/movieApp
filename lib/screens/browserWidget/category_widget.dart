@@ -8,10 +8,8 @@ class CategoryWidget extends StatelessWidget {
  // int? index ;
  String img ;
  String category;
- Genres ? movie;
- //List<Genres>? movie;
+ List<Genres> ? movie;
   CategoryWidget(this.category,   this.img,{this.movie,});
-  //CategoryWidget.init(this.genres);
 
   @override
   Widget build(BuildContext context) {

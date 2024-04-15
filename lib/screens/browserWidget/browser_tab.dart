@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/models/Genres.dart';
-import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/browserWidget/browser_view_model.dart';
 import 'package:movie_app/screens/browserWidget/category_widget.dart';
 import 'package:provider/provider.dart';
-
-import 'movie_details.dart';
 
 List<String> images = [
   'assets/categories/adventure.jpg',
@@ -52,12 +48,20 @@ class _BrowserTabState extends State<BrowserTab> {
     // TODO: implement initState
     super.initState();
     viewModel.getMovieList();
+
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title:Text(
+              'Browse Categories',
+              style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold)
+          ),
+          ),
       backgroundColor: Color(0xff1E1E1E),
       body: ChangeNotifierProvider(
         create: (context) => viewModel,
@@ -93,7 +97,6 @@ class _BrowserTabState extends State<BrowserTab> {
       else if (viewModel.movies == null) {
         return Center(
           child: CircularProgressIndicator(
-            color: MyThemeData.yellowColor,
           ),
         );
       }
@@ -101,17 +104,6 @@ class _BrowserTabState extends State<BrowserTab> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Text(
-                'Browse Categories',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             Expanded(
               child: GridView.builder(
                   itemCount: viewModel.movies?.length ?? 0,
@@ -121,7 +113,7 @@ class _BrowserTabState extends State<BrowserTab> {
                     crossAxisSpacing: 32,
                   ),
                   itemBuilder: (context, index) =>
-                      CategoryWidget((viewModel.movies?[index].name??'') , images[index])),
+                      CategoryWidget((viewModel.movies?[index].name??'') , images[index],movie: viewModel.movies,)),
 
             )
           ],

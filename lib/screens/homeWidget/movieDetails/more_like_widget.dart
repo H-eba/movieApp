@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/my_theme_data.dart';
 import 'package:movie_app/screens/homeWidget/movieDetails/more_like_widget_view_model.dart';
 import 'package:provider/provider.dart';
 import '../custome_widget.dart';
@@ -56,7 +55,6 @@ class _MoreLikeWidgetState extends State<MoreLikeWidget> {
                       }else if(viewModel.movies == null) {
                         return Center(
                           child: CircularProgressIndicator(
-                            color: MyThemeData.yellowColor,
                           ),
                         );
 

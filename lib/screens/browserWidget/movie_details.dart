@@ -10,27 +10,33 @@ class MovieDetails extends StatelessWidget {
 
   static const String routName='movie details';
  // Genres? movie;
-  MovieDetails({ super.key});
+  const MovieDetails({ super.key});
 
   @override
   Widget build(BuildContext context) {
     //var movie=ModalRoute.of(context)!.settings.arguments as Genres;
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xff514F4F),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        iconTheme:const IconThemeData(
+          color: Colors.white
+        ),
+        centerTitle: true,
+        title:const Text('MovieDetails',style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
         ),
       body:FutureBuilder(
         future:
         ApiManager.getCategoryDetailsList(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Text('error');
+            return const Text('error');
           }
           var categoryDetails=snapshot.data?.results??[];
           return GridView.builder(gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemBuilder:(context, index) {
               return CategoryItem(categoryItem: categoryDetails[index]);
             },

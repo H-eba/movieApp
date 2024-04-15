@@ -10,22 +10,31 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(child: TopSideSection()),
-        SizedBox(
-          height: 20,
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Enjoy watching',
+        style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold)),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TopSideSection(),
+            const SizedBox(
+              height: 20,
+            ),
+            NewReleasesWidget(),
+            const SizedBox(
+              height: 15,
+            ),
+            const  RecomendedWidget(),
+            const SizedBox(
+              height: 15,
+            ),
+          ],
         ),
-        Expanded(child: NewReleasesWidget()),
-        SizedBox(
-          height: 15,
-        ),
-        Expanded(child: RecomendedWidget()),
-        SizedBox(
-          height: 15,
-        ),
-      ],
+      ),
     );
   }
 }
