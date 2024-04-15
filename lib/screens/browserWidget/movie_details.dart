@@ -7,17 +7,17 @@ import '../../apis/api_manager.dart';
 import '../../models/Genres.dart';
 class MovieDetails extends StatelessWidget {
 
-  //movies?[index].name
+
   static const String routName='movie details';
  // Genres? movie;
   MovieDetails({ super.key});
 
   @override
   Widget build(BuildContext context) {
-    var movie=ModalRoute.of(context)!.settings.arguments as Genres;
+    //var movie=ModalRoute.of(context)!.settings.arguments as Genres;
     return Scaffold(
       appBar: AppBar(backgroundColor: Color(0xff514F4F),
-        title: Text(movie.name??''),),
+        ),
       body:FutureBuilder(
         future:
         ApiManager.getCategoryDetailsList(),

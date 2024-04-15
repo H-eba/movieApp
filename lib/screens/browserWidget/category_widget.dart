@@ -33,7 +33,7 @@ class CategoryWidget extends StatelessWidget {
               colorBlendMode: BlendMode.darken,
               color: Colors.grey,
             ),
-            Text(movie[index].name??'',
+            Text('${category}',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

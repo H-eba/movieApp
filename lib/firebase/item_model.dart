@@ -4,8 +4,10 @@ class WatchedListItemModel {
   String? originalTitle;
   String? date;
   String? image;
+  bool ? mark;
 
-  WatchedListItemModel({this.id = '', this.title, this.date, this.image,this.originalTitle});
+  WatchedListItemModel({this.id = '', this.title, this.date, this.image,this.originalTitle,
+  this.mark=true});
 
   WatchedListItemModel.fromJson(Map<String, dynamic> json)
       : this(
@@ -13,6 +15,7 @@ class WatchedListItemModel {
             title: json['title'],
             date: json['date'],
             image: json['image'],
+      mark:json['mark'],
       originalTitle:json['originalTitle']
   );
 
