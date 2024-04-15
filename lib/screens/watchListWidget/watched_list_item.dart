@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/firebase/firebase_function.dart';
+import 'package:movie_app/screens/homeWidget/movieDetails/movie_details_screen.dart';
 
 import '../../firebase/item_model.dart';
 
